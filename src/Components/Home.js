@@ -1,9 +1,9 @@
 import '../App.css'
 import SingleProd from "./SingleProd";
-import { Link } from 'react-router-dom';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+// import { Link } from 'react-router-dom';
+// import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 import { CartData } from '../Context/Context';
 
 const Home = () => {

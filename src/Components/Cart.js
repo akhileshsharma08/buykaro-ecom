@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { CartData } from "../Context/Context";
-import SingleProd from "./SingleProd";
 import {BsTrashFill} from 'react-icons/bs'
 import { Link } from "react-router-dom";
 

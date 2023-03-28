@@ -3,8 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaShoppingCart } from 'react-icons/fa'
-import { MdDarkMode } from 'react-icons/md'
-import { TbSunFilled } from 'react-icons/tb'
+
 import { CartData } from '../Context/Context';
 import {Link} from 'react-router-dom'
 import '../App.css'
