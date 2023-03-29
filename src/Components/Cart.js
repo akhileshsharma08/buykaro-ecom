@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { CartData } from "../Context/Context";
-import {BsTrashFill} from 'react-icons/bs'
+import { BsTrashFill } from 'react-icons/bs'
 import { Link } from "react-router-dom";
+import { Triangle } from "react-loader-spinner";
 
 const Cart = () => {
-  const { cart,setCart,products } = CartData();
+  const { cart, setCart, products ,loading} = CartData();
   const [total, setTotal] = useState();
- 
+
 
 
 
@@ -16,7 +17,22 @@ const Cart = () => {
 
   return (
     <>
-      <div className="container mb-4">
+ 
+    {
+    loading ?
+    (<div className="loadingbox d-flex justify-content-center align-items-center my-5">
+      <Triangle
+    height="100"
+    width="100"
+    color="#4fa94d"
+    ariaLabel="triangle-loading"
+    wrapperStyle={{}}
+    wrapperClassName=""
+    visible={true}
+  />
+    </div>)
+    : 
+  (<div className="container mb-4">
         <h4 className="mycart mt-4"> Cart Details </h4>
         <table className="table table-striped">
           <thead>
@@ -25,20 +41,23 @@ const Cart = () => {
               <th scope="col">Image</th>
               <th scope="col">Name</th>
               <th scope="col">Price</th>
-              <th scope="col"></th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            {cart.map((item,index) => {
+            {cart.map((item, index) => {
               return (
-                <><tr key={item.id}>
-                  <th scope="row">{index+1}</th>
-                  <td><img src={item.image} alt={item.title} width={60} height={60} className="rounded-circle border border-secondary mb-2" />
-                  </td>
-                  <td>{item.title.substring(0, 12)}</td>
-                  <td>${item.price}</td>
-                  <td><Link><BsTrashFill onClick={() => {setCart(cart.filter((c) => c.id !== products.id)) }} className="fs-2 text-danger"/></Link></td>
-                </tr> </>)
+                <>
+                  <tr key={item.id}>
+                    <th scope="row" >{index + 1}</th>
+                    <td><img src={item.image} alt={item.title} width={60} height={60} className="rounded-circle border border-secondary mb-2" />
+                    </td>
+                    <td>{item.title.substring(0, 12)}</td>
+                    <td>${Math.round(item.price)}</td>
+                    <td><Link><BsTrashFill onClick={() => setCart(cart.filter((c) => c.id !== products.id))} className="fs-2 text-danger" /></Link></td>
+                  </tr>
+                </>
+              )
             })}
           </tbody>
         </table>
@@ -50,7 +69,9 @@ const Cart = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div>)
+    }
+     
     </>
   )
 }

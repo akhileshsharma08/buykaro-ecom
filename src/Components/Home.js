@@ -1,44 +1,47 @@
 import '../App.css'
 import SingleProd from "./SingleProd";
-// import { Link } from 'react-router-dom';
-// import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import React  from 'react'
+import React, { useState }  from 'react'
 import { CartData } from '../Context/Context';
+import {Triangle} from 'react-loader-spinner'
+import Carausel from './Carausel';
 
 const Home = () => {
   const { products,loading } = CartData()
+  const [sorted,setSorted] = useState([])
   
-const Loading =()=>{
-  return (
-    <>
-   <h2>loading.....</h2>
-    {/* <SkeletonTheme baseColor="#202020" highlightColor="#444">
-    <div className="col-md-3"><Skeleton height={300} width={200}  /></div>
-    <div className="col-md-3"><Skeleton height={300} width={200} /></div>
-    <div className="col-md-3"><Skeleton height={300} width={200} /></div>
-    <div className="col-md-3"><Skeleton height={300} width={200} /></div>
-    </SkeletonTheme> */}
-    </>
-  )
-}
+  const HandleSorted=(CateItem)=>{
+   let updatedItem=products.filter((curElement)=>{
+    return curElement.category ===CateItem
+  })
+  setSorted(updatedItem)
+  }
+ 
 
   return (
-    <div className=' mt-5 mb-5 mx-4'>   
-       <div className="choosecategory d-flex justify-content-center align-items-center">
-          <button className="btn btn-outline-dark text-capitalize mx-2">men's clothing</button>
-          <button className="btn btn-outline-dark text-capitalize me-2">women's clothing</button>
-          <button className="btn btn-outline-dark text-capitalize me-2">jewellery </button>
-          <button className="btn btn-outline-dark text-capitalize me-2">electronics </button>
-        </div>
+    <div className='mb-5 pb-4 '>   
+     {/* <h1 className='text-center capitalize '> Store Clearance Sale is Live </h1> */}
+     <Carausel/>
+     <h4 className=' my-2 mx-5'> Most Trending Products</h4>
       <div className="productList d-flex justify-content-around align-self-center flex-wrap border-2 my-4 ">
+        
         {products.map((prod) => {
           return (
             <>
-            {
-            loading ?
-            <Loading/>:
-              <SingleProd prod={prod} key={prod.id} />
+             {     loading ?
+           ( <div className="loadingbox d-flex justify-content-center align-items-center my-5">
+              <Triangle
+              height="100"
+              width="100"
+              color="#4fa94d"
+              ariaLabel="triangle-loading"
+              wrapperStyle={{}}
+              wrapperClassName=""
+              visible={true}
+            />
+            </div>)
+            : 
+             ( <SingleProd prod={prod} key={prod.id} />)
              }
             </>
           )

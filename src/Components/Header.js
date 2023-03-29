@@ -18,14 +18,14 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link ><Link to="/" className='text-white text-decoration-none mylinks fw-bold hover-text-primary'>Home</Link> </Nav.Link>
-              <Nav.Link > <Link to="/products" className='text-white text-decoration-none mylinks fw-bold hover-text-primary'>Products</Link> </Nav.Link>
+              <Nav ><Link to="/" className='text-white text-decoration-none mylinks fw-bold hover-text-primary mx-2'>Home</Link> </Nav>
+              <Nav> <Link to="/products" className='text-white text-decoration-none mylinks fw-bold hover-text-primary'>Products</Link> </Nav>
 
             </Nav>
             <Nav>
-              <Nav.Link ><Link to="/cart" className='text-white text-decoration-none mylinks fw-bold hover-text-primary'><FaShoppingCart className=' fs-3 fw-bolder position-relative' /> <span className="position-absolute top-10 right-10 translate-middle badge rounded-pill bg-danger">
+              <Nav ><Link to="/cart" className='text-white text-decoration-none mylinks fw-bold hover-text-primary'><FaShoppingCart className=' fs-3 fw-bolder position-relative' /> <span className="position-absolute top-10 right-10 translate-middle badge rounded-pill bg-danger">
                 {cart.length}
-              </span></Link></Nav.Link>
+              </span></Link></Nav>
 
             </Nav>
           </Navbar.Collapse>

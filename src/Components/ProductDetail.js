@@ -4,11 +4,13 @@ import { CartData } from '../Context/Context';
 import { AiFillStar } from 'react-icons/ai'
 import { FaShippingFast } from 'react-icons/fa'
 import ReactImageMagnify from 'react-image-magnify';
+import {Triangle} from 'react-loader-spinner'
+
 
 
 const ProductDetail = () => {
   const [detailProduct, setDetailProduct] = useState([])
-  const { cart, setCart } = CartData()
+  const { cart, setCart ,loading} = CartData()
 
   // const {products}= CartData()
   const { id } = useParams()
@@ -35,13 +37,23 @@ const ProductDetail = () => {
   return (
     <div className=''>
 
-      <div className="container my-4">
-        <div className="row  d-flex flex-nowrap  justify-content-center align-items-center shadow-lg">
-          <div className="col-lg-4 col-sm-4">
+{loading ? (   <div className="loadingbox d-flex justify-content-center align-items-center my-5">
+              <Triangle
+              height="100"
+              width="100"
+              color="#4fa94d"
+              ariaLabel="triangle-loading"
+              wrapperStyle={{}}
+              wrapperClassName=""
+              visible={true}
+            />
+            </div>):(<div className="container my-4">
+        <div className="row  d-flex flex-wrap  justify-content-center align-items-center shadow-lg mb-5 pb-4">
+          <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="image p-2">
               <ReactImageMagnify {...{
                 smallImage: {
-                  alt: 'Wristwatch by Ted Baker London',
+                  alt: 'magnify the pic',
                   isFluidWidth: true,
                   src: ProductImage
                 },
@@ -53,7 +65,7 @@ const ProductDetail = () => {
               }} />
             </div>
           </div>
-          <div className="col-lg-7 col-sm-7 shadow-lg mx-2 ">
+          <div className="col-lg-7 col-md-12 col-sm-12 shadow-lg mx-2 ">
             <div className="description p-2">
               <p className='text-center badge bg-secondary mx-2 mb-1'> {detailProduct.category}</p>
               <h2>{detailProduct.title}</h2>
@@ -91,7 +103,8 @@ const ProductDetail = () => {
 
         </div>
 
-      </div>
+      </div>)}
+      
 
 
 

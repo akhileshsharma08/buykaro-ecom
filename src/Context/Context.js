@@ -9,7 +9,7 @@ const Context = ({ children }) => {
   const [loading,setLoading]= useState(true)
 
   useEffect(()=>{
-    setTimeout(()=>{
+ 
   //  const fetchdata= async()=>{
       // setLoading(true)
        fetch('https://fakestoreapi.com/products')
@@ -20,13 +20,13 @@ const Context = ({ children }) => {
             setLoading(false)
           })
     // }
-    },2000)
+ 
  
    
 // fetchdata()
   },[])
   
-// console.log(products,"product context")
+console.log(products,"product context")
 
   return (
     <Cart.Provider value={{ products,cart,setCart,loading,setLoading }}>
