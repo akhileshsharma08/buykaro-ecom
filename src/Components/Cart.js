@@ -29,10 +29,10 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map((item) => {
+            {cart.map((item,index) => {
               return (
                 <><tr key={item.id}>
-                  <th scope="row">1</th>
+                  <th scope="row">{index+1}</th>
                   <td><img src={item.image} alt={item.title} width={60} height={60} className="rounded-circle border border-secondary mb-2" />
                   </td>
                   <td>{item.title.substring(0, 12)}</td>
@@ -42,9 +42,9 @@ const Cart = () => {
             })}
           </tbody>
         </table>
-        <div className="d-flex carttotalbox justify-content-end mb-4">
+        <div className="d-flex carttotalbox justify-content-end mb-4 mx-4">
           <div >
-            <h3 className="flex-col">Total: <span>${Math.floor(total)}</span> </h3>
+            <h3 className="flex-col">Total: <span>${total}</span> </h3>
             <button className="add btn btn-warning btn-lg" onClick={() => alert("payment done")}>
               Pay Now
             </button>

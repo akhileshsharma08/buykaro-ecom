@@ -24,6 +24,13 @@ const ProductDetail = () => {
 
     fetchdata()
   }, [])
+  
+  const HandleAddItem=()=>{
+    setCart([...cart,detailProduct])
+
+  }
+
+  
   const ProductImage = detailProduct.image
   return (
     <div className=''>
@@ -70,7 +77,7 @@ const ProductDetail = () => {
                     Remove Item
                   </button>
                 ) : (
-                  <button className="add btn btn-outline-dark btn-lg" onClick={() => setCart([...cart])}>
+                  <button className="add btn btn-outline-dark btn-lg" onClick={HandleAddItem }>
                     Add Item
                   </button>
                 )}
