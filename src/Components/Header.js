@@ -12,7 +12,7 @@ const Header = () => {
   const { cart } = CartData()
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='fixed-top'>
         <Container>
           <Navbar.Brand > <Link to="/" className='text-white text-decoration-none mylinks fw-bold hover-text-primary'>BuyKaro</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

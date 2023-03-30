@@ -19,7 +19,7 @@ const Home = () => {
  
 
   return (
-    <div className='mb-5 pb-4 '>   
+    <div className='my-5 py-2 '>   
      {/* <h1 className='text-center capitalize '> Store Clearance Sale is Live </h1> */}
      <Carausel/>
      <h4 className=' my-2 mx-5'> Most Trending Products</h4>

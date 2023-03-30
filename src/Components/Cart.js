@@ -3,12 +3,16 @@ import { CartData } from "../Context/Context";
 import { BsTrashFill } from 'react-icons/bs'
 import { Link } from "react-router-dom";
 import { Triangle } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, setCart, products ,loading} = CartData();
-  const [total, setTotal] = useState();
+  const { cart, setCart, products ,loading ,total,setTotal} = CartData();
+  // const [total, setTotal] = useState();
+  const navigate = useNavigate()
 
-
+const HandleButton=()=>{
+  navigate('/payment')
+}
 
 
   useEffect(() => {
@@ -64,7 +68,7 @@ const Cart = () => {
         <div className="d-flex carttotalbox justify-content-end mb-4 mx-4">
           <div >
             <h3 className="flex-col">Total: <span>${total}</span> </h3>
-            <button className="add btn btn-warning btn-lg" onClick={() => alert("payment done")}>
+            <button className="add btn btn-warning btn-lg" onClick={HandleButton}>
               Pay Now
             </button>
           </div>

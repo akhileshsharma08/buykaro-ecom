@@ -6,6 +6,7 @@ import Cart from './Components/Cart'
 import Products from './Components/Products'
 import Footer from './Components/Footer'
 import ProductDetail from './Components/ProductDetail'
+import Payment from './Components/Payment'
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/products" element={<Products />} />
             <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/payment" element={<Payment />} />
             <Route exact path="/product/:id" element={<ProductDetail />} />
           </Routes>
           <Footer/>

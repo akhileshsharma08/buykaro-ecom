@@ -7,6 +7,7 @@ const Context = ({ children }) => {
   const [products,setProducts]= useState([])
   const [cart,setCart] = useState([])
   const [loading,setLoading]= useState(true)
+  const [total,setTotal] = useState("")
 
   useEffect(()=>{
  
@@ -29,7 +30,7 @@ const Context = ({ children }) => {
 console.log(products,"product context")
 
   return (
-    <Cart.Provider value={{ products,cart,setCart,loading,setLoading }}>
+    <Cart.Provider value={{ products,cart,setCart,loading,setLoading,total,setTotal }}>
       {children}
     </Cart.Provider>
   )
