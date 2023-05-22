@@ -4,13 +4,13 @@ import { CartData } from '../Context/Context';
 import { AiFillStar } from 'react-icons/ai'
 import { FaShippingFast } from 'react-icons/fa'
 import ReactImageMagnify from 'react-image-magnify';
-import {Triangle} from 'react-loader-spinner'
+import { Triangle } from 'react-loader-spinner'
 
 
 
 const ProductDetail = () => {
   const [detailProduct, setDetailProduct] = useState([])
-  const { cart, setCart ,loading} = CartData()
+  const { cart, setCart, loading } = CartData()
 
   // const {products}= CartData()
   const { id } = useParams()
@@ -26,29 +26,29 @@ const ProductDetail = () => {
 
     fetchdata()
   }, [])
-  
-  const HandleAddItem=()=>{
-    setCart([...cart,detailProduct])
+
+  const HandleAddItem = () => {
+    setCart([...cart, detailProduct])
 
   }
 
-  
+
   const ProductImage = detailProduct.image
   return (
     <div className=''>
 
-{loading ? (   <div className="loadingbox d-flex justify-content-center align-items-center my-5">
-              <Triangle
-              height="100"
-              width="100"
-              color="#4fa94d"
-              ariaLabel="triangle-loading"
-              wrapperStyle={{}}
-              wrapperClassName=""
-              visible={true}
-            />
-            </div>):(<div className="container my-4">
-        <div className="row  d-flex flex-wrap  justify-content-center align-items-center shadow-lg mb-5 pb-4">
+      {loading ? (<div className="loadingbox d-flex justify-content-center align-items-center my-5">
+        <Triangle
+          height="100"
+          width="100"
+          color="#4fa94d"
+          ariaLabel="triangle-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
+      </div>) : (<div className="container my-5 pt-5">
+        <div className="row  d-flex flex-wrap  justify-content-center align-items-center  mb-5 pb-4">
           <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="image p-2">
               <ReactImageMagnify {...{
@@ -89,7 +89,7 @@ const ProductDetail = () => {
                     Remove Item
                   </button>
                 ) : (
-                  <button className="add btn btn-outline-dark btn-lg" onClick={HandleAddItem }>
+                  <button className="add btn btn-outline-dark btn-lg" onClick={HandleAddItem}>
                     Add Item
                   </button>
                 )}
@@ -104,7 +104,7 @@ const ProductDetail = () => {
         </div>
 
       </div>)}
-      
+
 
 
 
